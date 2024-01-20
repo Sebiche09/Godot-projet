@@ -1,8 +1,9 @@
-[gd_scene load_steps=14 format=3 uid="uid://dcdy288jfm6b1"]
+[gd_scene load_steps=16 format=3 uid="uid://dcdy288jfm6b1"]
 
 [ext_resource type="Script" path="res://scripts/world_gen/world_gen.gd" id="1_51lve"]
 [ext_resource type="Texture2D" uid="uid://droxycwdbjwe8" path="res://assets/TilesMap.png" id="2_de1tj"]
 [ext_resource type="PackedScene" uid="uid://bias42gfi0n83" path="res://scenes/character.tscn" id="3_7vjw0"]
+[ext_resource type="Texture2D" uid="uid://bdqbimncqivb5" path="res://assets/Plante01.png" id="3_p3stf"]
 [ext_resource type="Texture2D" uid="uid://dk1be6rfyyyro" path="res://assets/ciel_etoile.png" id="4_unvir"]
 [ext_resource type="Texture2D" uid="uid://byn8ikj37t1fg" path="res://assets/Background_171.png" id="4_y1xpx"]
 [ext_resource type="Texture2D" uid="uid://c8cbefgmfw3tf" path="res://assets/Background_278.png" id="5_sib0y"]
@@ -886,12 +887,40 @@ texture = ExtResource("2_de1tj")
 "type": 0
 }
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_towqy"]
+texture = ExtResource("3_p3stf")
+0:0/0 = 0
+0:0/0/probability = 0.33
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
+0:0/0/metadata/_better_terrain = {
+4: [0],
+"type": 3
+}
+1:0/0 = 0
+1:0/0/probability = 0.33
+1:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:0/0/physics_layer_0/angular_velocity = 0.0
+1:0/0/metadata/_better_terrain = {
+4: [0],
+"type": 3
+}
+2:0/0 = 0
+2:0/0/probability = 0.33
+2:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+2:0/0/physics_layer_0/angular_velocity = 0.0
+2:0/0/metadata/_better_terrain = {
+4: [0],
+"type": 3
+}
+
 [sub_resource type="TileSet" id="TileSet_2bi68"]
 physics_layer_0/collision_layer = 1
 terrain_set_0/mode = 0
 terrain_set_0/terrain_0/name = "Terrain 0"
 terrain_set_0/terrain_0/color = Color(0.709804, 0.101961, 0, 1)
 sources/0 = SubResource("TileSetAtlasSource_oeg55")
+sources/1 = SubResource("TileSetAtlasSource_towqy")
 metadata/_better_terrain = {
 "decoration": ["Decoration", Color(0.411765, 0.411765, 0.411765, 1), 3, [], {
 "path": "res://addons/better-terrain/icons/Decoration.svg"
@@ -901,6 +930,8 @@ metadata/_better_terrain = {
 }], ["stone", Color(0.529412, 0.117647, 0.0470588, 1), 0, [], {
 "path": ""
 }], ["grass", Color(0.321569, 0.768627, 0.0117647, 1), 0, [], {
+"path": ""
+}], ["fleur", Color(0.69018, 0.392456, 0.147811, 1), 0, [], {
 "path": ""
 }]],
 "version": "0.2"
@@ -933,7 +964,8 @@ position = Vector2(966, -346)
 metadata/_edit_group_ = true
 
 [node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
-position = Vector2(2, -363)
+position = Vector2(2, -34)
+zoom = Vector2(2, 2)
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 

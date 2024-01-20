@@ -1,1 +1,3 @@
-res://Levels/game_levels.tscn
+res://scenes/character.tscn
+res://scenes/eclipsia.tscn
+res://scripts/soleil.gd

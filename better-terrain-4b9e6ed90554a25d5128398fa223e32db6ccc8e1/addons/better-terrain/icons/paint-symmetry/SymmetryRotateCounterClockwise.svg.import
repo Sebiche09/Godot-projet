@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://pi5b5dq2gleu"
-path="res://.godot/imported/terrarai.png-258ff090d4c338d68a456a2e52864194.ctex"
+uid="uid://ngej4qhkypb2"
+path="res://.godot/imported/SymmetryRotateCounterClockwise.svg-343a798e572856a69b166666a96c2bf7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://terrarai.png"
-dest_files=["res://.godot/imported/terrarai.png-258ff090d4c338d68a456a2e52864194.ctex"]
+source_file="res://better-terrain-4b9e6ed90554a25d5128398fa223e32db6ccc8e1/addons/better-terrain/icons/paint-symmetry/SymmetryRotateCounterClockwise.svg"
+dest_files=["res://.godot/imported/SymmetryRotateCounterClockwise.svg-343a798e572856a69b166666a96c2bf7.ctex"]
 
 [params]
 
@@ -32,3 +32,6 @@ process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
 detect_3d/compress_to=1
+svg/scale=4.0
+editor/scale_with_editor_scale=false
+editor/convert_colors_with_editor_theme=false

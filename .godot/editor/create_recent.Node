@@ -1,6 +1,8 @@
-Node2D
+AudioStreamPlayer
+Timer
 AnimationPlayer
 Sprite2D
+Node2D
 DirectionalLight2D
 ParallaxLayer
 ParallaxBackground
@@ -10,5 +12,3 @@ CharacterBody2D
 Camera2D
 TextureRect
 TileMap
-Area2D
-StaticBody2D

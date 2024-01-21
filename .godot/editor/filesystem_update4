@@ -1,3 +1,4 @@
-res://scenes/eclipsia.tscn
 res://scenes/character.tscn
+res://scripts/character.gd
+res://scenes/eclipsia.tscn
 res://scripts/world_gen/world_gen.gd

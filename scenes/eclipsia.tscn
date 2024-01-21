@@ -106,6 +106,7 @@ texture = ExtResource("2_de1tj")
 "type": 0
 }
 4:1/0 = 0
+4:1/0/probability = 0.25
 4:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 4:1/0/physics_layer_0/angular_velocity = 0.0
 4:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
@@ -395,9 +396,47 @@ texture = ExtResource("2_de1tj")
 3:7/0 = 0
 3:7/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 3:7/0/physics_layer_0/angular_velocity = 0.0
+4:7/next_alternative_id = 4
 4:7/0 = 0
 4:7/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 4:7/0/physics_layer_0/angular_velocity = 0.0
+4:7/1 = 1
+4:7/1/flip_h = true
+4:7/1/probability = 0.25
+4:7/1/physics_layer_0/linear_velocity = Vector2(0, 0)
+4:7/1/physics_layer_0/angular_velocity = 0.0
+4:7/1/metadata/_better_terrain = {
+0: [0],
+4: [0],
+8: [0],
+12: [0],
+"type": 0
+}
+4:7/2 = 2
+4:7/2/flip_v = true
+4:7/2/probability = 0.25
+4:7/2/physics_layer_0/linear_velocity = Vector2(0, 0)
+4:7/2/physics_layer_0/angular_velocity = 0.0
+4:7/2/metadata/_better_terrain = {
+0: [0],
+4: [0],
+8: [0],
+12: [0],
+"type": 0
+}
+4:7/3 = 3
+4:7/3/flip_h = true
+4:7/3/flip_v = true
+4:7/3/probability = 0.25
+4:7/3/physics_layer_0/linear_velocity = Vector2(0, 0)
+4:7/3/physics_layer_0/angular_velocity = 0.0
+4:7/3/metadata/_better_terrain = {
+0: [0],
+4: [0],
+8: [0],
+12: [0],
+"type": 0
+}
 5:7/0 = 0
 5:7/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 5:7/0/physics_layer_0/angular_velocity = 0.0
@@ -886,6 +925,26 @@ texture = ExtResource("2_de1tj")
 12: [0],
 "type": 0
 }
+15:8/0 = 0
+15:8/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+15:8/0/physics_layer_0/angular_velocity = 0.0
+15:8/0/metadata/_better_terrain = {
+0: [1],
+4: [0],
+8: [0],
+12: [0],
+"type": 0
+}
+17:8/0 = 0
+17:8/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+17:8/0/physics_layer_0/angular_velocity = 0.0
+17:8/0/metadata/_better_terrain = {
+0: [0],
+4: [0],
+8: [1],
+12: [0],
+"type": 0
+}
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_towqy"]
 texture = ExtResource("3_p3stf")
@@ -978,6 +1037,7 @@ motion_scale = Vector2(0, 1)
 motion_mirroring = Vector2(1870, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer3"]
+visible = false
 modulate = Color(1, 1, 1, 0.882353)
 position = Vector2(973.8, -169)
 scale = Vector2(1.0239, 1.2325)
@@ -988,6 +1048,7 @@ position = Vector2(0, 55)
 motion_scale = Vector2(0, 1)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+visible = false
 modulate = Color(1, 1, 1, 0.670588)
 position = Vector2(956, -546)
 scale = Vector2(1.06864, 1.04688)
@@ -995,13 +1056,13 @@ texture = ExtResource("4_y1xpx")
 
 [node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
 position = Vector2(4, 0)
-motion_scale = Vector2(0.5, 1)
-motion_mirroring = Vector2(1870, 0)
+scale = Vector2(1.00081, 1)
+motion_scale = Vector2(0, 1)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2"]
 modulate = Color(1, 1, 1, 0.882353)
 position = Vector2(961, -169)
-scale = Vector2(1.5039, 2.1925)
+scale = Vector2(5.466, 2.88)
 texture = ExtResource("5_sib0y")
 
 [node name="ParallaxLayer4" type="ParallaxLayer" parent="ParallaxBackground"]
@@ -1016,6 +1077,7 @@ motion_mirroring = Vector2(1870, 0)
 script = ExtResource("7_0nrkg")
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer4/Node2D"]
+visible = false
 modulate = Color(1, 1, 1, 0.882353)
 position = Vector2(981.196, -233)
 scale = Vector2(0.6, 0.7)

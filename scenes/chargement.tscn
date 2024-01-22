@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://8dtyidpr28in"]
+
+[node name="chargement" type="MarginContainer"]
+offset_right = 767.0
+offset_bottom = 432.0
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 2
+color = Color(0, 0, 0, 1)
+
+[node name="boxInfos" type="HBoxContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
+alignment = 1
+
+[node name="Label" type="Label" parent="boxInfos"]
+layout_mode = 2
+text = "test"
+vertical_alignment = 2
+
+[node name="boxChargement" type="HBoxContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 5
+size_flags_vertical = 0
+size_flags_stretch_ratio = 1.57
+alignment = 1
+
+[node name="Label" type="Label" parent="boxChargement"]
+layout_mode = 2
+text = "Chargement"
+vertical_alignment = 2

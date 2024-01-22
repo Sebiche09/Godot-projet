@@ -12,9 +12,9 @@ extends Node2D
 #----------------------------------- variable --------------------------------------------
 @export var noise_image : NoiseTexture2D
 @export var cave_text : NoiseTexture2D
-@export var bedrock : int = 150
-var map_height = 150
-var map_width = 1000
+@export var bedrock : int = 100
+var map_height = 100
+var map_width = 200
 var data_dict = {}
 var changeset : Dictionary
 var is_map_ready = false
@@ -31,7 +31,7 @@ func make_map() -> void:
 	for x in range(map_width):
 		var noise_height = int((noise.get_noise_1d(x) * 0.5 + 0.5) * 60)
 		for y in range(map_height):
-			if cave_noise.get_noise_2d(x,y) >0.45:
+			if cave_noise.get_noise_2d(x,y) >0.635:
 				data_dict[Vector2i(x,y)] = -1
 			elif y == noise_height-1 and randi() % SPAWN_FLOWER_RATE == 0:
 				data_dict[Vector2i(x,y)] = 3

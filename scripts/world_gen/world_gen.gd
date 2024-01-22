@@ -2,122 +2,88 @@ extends Node2D
 
 @onready var ambiance_jour = $ambiance1
 @onready var tile_map = $TileMap
-
+@onready var camera_personnage = $CharacterBody2D/Camera2D
+@onready var camera_map = $TileMap/tilemap_cam
 #----------------------------------- variable --------------------------------------------
 @export var noise_image : NoiseTexture2D
 @export var cave_text : NoiseTexture2D
-@export var width: int = 500
-@export var dirt_height : int = 7
-@export var stone_height : int = 100
 @export var bedrock : int = 100
-
-var grass_fill_arr = []
-var grass_fill_dict = {}
-var dirt_fill_arr = []
-var flower_fill_arr = []
-var stone_fill_arr = []
-var bedrock_fill_arr = []
-var tile_arr = []
-var proba = 0
+var grid_height = 300
+var grid_width = 1000
+var data_grid = []
 #------------------------------------------------------------------------------------------
-func _on_Timer_timeout():
-	pass
-func _ready():
-	
-	AudioStreamRandomizer.PLAYBACK_RANDOM
-	#crée une variable noise qui contient la noisemap 
-	var noise : FastNoiseLite = noise_image.noise
-	#génère une seed aléatoire pour la noisemap
-	noise.seed = randi()
+
+func _ready():	
+	#initialisation de la grille
+	for y in range (grid_height):
+		data_grid.append([])
+		for x in range(grid_width):
+			data_grid[y].append("vide")  # Initialiser chaque cellule à "vide"
+			
 	var cave_noise : FastNoiseLite = cave_text.noise
 	cave_noise.seed = randi()
-	var noise_height
+	var noise : FastNoiseLite = noise_image.noise
+	noise.seed = randi()
+	var dirt_height = randi_range(7,8)
+	var stone_height = grid_height-dirt_height+1
+	const SPAWN_FLOWER_RATE = 10
 	
-	#prend chaque valeur de x pour toute la longueur de la map
-	for x in width:
-		#défini un valeur comprise entre (x et x+...) pour crée la premiere couche
-		noise_height = int(noise.get_noise_1d(x) * 20)
-
-		#défini un nombre random entre 7 et 8 qui permettra d'avoir plus ou moins de couche de dirt
-		dirt_height = randi_range(7,8)
-
-
-		
-		#On parcours pour x (horizontale) les y
-		for y in range(-1,dirt_height):
-			if cave_noise.get_noise_2d(x,y) >-0.75:
-				if y == -1:
-					proba = randi_range(0,20)
-					if proba == 0:
-						flower_fill_arr.append(Vector2(x, noise_height+y))
-				elif y == 0:
-					grass_fill_arr.append(Vector2(x, noise_height))
-				else:
-					dirt_fill_arr.append(Vector2(x, noise_height+y))
-					
-		#Remplir de stone
-		for y in range(dirt_height, stone_height): 
-			if (noise_height+y) <= bedrock:
-				if cave_noise.get_noise_2d(x,y) >-0.75:
-					stone_fill_arr.append(Vector2(x, noise_height+y))
-			elif (noise_height+y) == bedrock:
-					bedrock_fill_arr.append(Vector2(x, noise_height+y))
-
-
-
-	#Remplir de fleur
-	BetterTerrain.set_cells(tile_map,0, flower_fill_arr, 3)
-	BetterTerrain.update_terrain_cells(tile_map, 0, flower_fill_arr,true)
-
-	#Remplir de terre
-	BetterTerrain.set_cells(tile_map,0, dirt_fill_arr, 0)
-	BetterTerrain.update_terrain_cells(tile_map, 0, dirt_fill_arr,true)
-
-	#Remplir de stone
-	BetterTerrain.set_cells(tile_map,0, stone_fill_arr, 1)
-	BetterTerrain.update_terrain_cells(tile_map, 0, stone_fill_arr,true)
-
-	#Remplir de bedrock
-	BetterTerrain.set_cells(tile_map,0, bedrock_fill_arr, 4)
-	BetterTerrain.update_terrain_cells(tile_map, 0, bedrock_fill_arr,true)
+	for x in range(grid_width):
+		var noise_height = int((noise.get_noise_1d(x) * 0.5 + 0.5) * 60)
+		for y in range(grid_height):
+			if cave_noise.get_noise_2d(x,y) >0.45:
+				data_grid[y][x] = "vide"
+			elif y == noise_height-1 and randi() % SPAWN_FLOWER_RATE == 0:
+				data_grid[y][x] = "fleur"
+			elif y == noise_height:
+				data_grid[y][x] = "herbe"
+			elif y > noise_height and y <= noise_height + dirt_height:
+				data_grid[y][x] = "terre"
+			elif y > noise_height + dirt_height and y <= noise_height + dirt_height + stone_height:
+				data_grid[y][x] = "pierre"			
+			else:
+				pass  # Laisser comme "vide" ou définir un autre type de tuile
 	
-	BetterTerrain.set_cells(tile_map,0, grass_fill_arr, 2)
-	for vec in grass_fill_arr:
-		var i = vec.x-1
-		var j = vec.y-1
-		BetterTerrain.update_terrain_area(tile_map,0,Rect2i(Vector2i(i,j), Vector2i(3,3)),true)
+	for y in range(grid_height):
+		for x in range(grid_width):
+			var tile_type = data_grid[y][x]
+			var tile_id
+			match tile_type:
+				"terre":
+					tile_id = 0
+				"pierre":
+					tile_id = 1
+				"herbe":
+					tile_id = 2
+				"fleur":
+					tile_id = 3
+				"bedrock":	
+					tile_id = 4
+			if tile_id != null:
+				BetterTerrain.set_cell(tile_map,0,Vector2i(x,y),tile_id)
+	BetterTerrain.update_terrain_area(tile_map, 0,Rect2i(0,0, grid_width, grid_height))
 
-func _process(delta):
-	if grass_fill_dict.size() > 0:
-		for cle in grass_fill_dict:
-			grass_fill_dict[cle] += randi_range(1,5)
-			if grass_fill_dict[cle] > 10000:
-				BetterTerrain.set_cell(tile_map, 0, cle, 2)
-				grass_fill_dict.erase(cle) # Retirer la clé une fois mise à jour
 
-	
 func _input(event):
+#------------------------------------------ MINAGE ----------------------------------------------------------
 	if Input.is_action_pressed("chop"):
 		var mouse_pos = get_global_mouse_position()
 		var tile_pos = tile_map.local_to_map(mouse_pos)
 		var index = BetterTerrain.get_cell(tile_map,0,tile_pos)
-		if grass_fill_dict.size() > 0:
-			for cle in grass_fill_dict:
-				if tile_pos == cle:
-					grass_fill_dict.erase(cle)
 		if index != -1:
-				tile_map.erase_cell(0, tile_pos)
-				BetterTerrain.update_terrain_area(tile_map,
-				0,Rect2i((tile_pos[0]-2),(tile_pos[1]-2),3,3),true)
-				if BetterTerrain.get_cell(tile_map,0,Vector2i(tile_pos[0],tile_pos[1]+1)) != -1:
-					grass_fill_dict[Vector2i(tile_pos[0],tile_pos[1]+1)] = 0
-				
-	if Input.is_action_pressed("Build"):
-		var mouse_pos = get_global_mouse_position()
-		var tile_pos = tile_map.local_to_map(mouse_pos)
-		if BetterTerrain.get_cell(tile_map,0,tile_pos) == -1:
-			BetterTerrain.set_cell(tile_map,0, tile_pos, 0)
+			tile_map.erase_cell(0, tile_pos)
 			BetterTerrain.update_terrain_area(tile_map,
-				0,Rect2i((tile_pos[0]-2),(tile_pos[1]-2),3,3),true)
-				
+			0,Rect2i((tile_pos[0]-2),(tile_pos[1]-2),3,3),true)
+			if BetterTerrain.get_cell(tile_map,0,Vector2i(tile_pos[0],tile_pos[1]+1)) != -1 :
+				var tile_meta = BetterTerrain._get_tile_meta(tile_map.get_cell_tile_data(0, Vector2i(tile_pos[0],tile_pos[1]+1))).type
+#-------------------------------------------------------------------------------------------------------------
 
+
+	if event.is_action_pressed("caméra"):
+		# Basculer entre les caméras
+		if camera_personnage.enabled:
+			camera_personnage.enabled = false
+			camera_map.enabled = true
+		else:
+			camera_personnage.enabled = true
+			camera_map.enabled = false

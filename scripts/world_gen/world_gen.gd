@@ -20,8 +20,7 @@ var bedrock_fill_arr = []
 var tile_arr = []
 var proba = 0
 #------------------------------------------------------------------------------------------
-func _on_Timer_timeout():
-	pass
+
 func _ready():
 	
 	AudioStreamRandomizer.PLAYBACK_RANDOM
@@ -41,8 +40,6 @@ func _ready():
 		#défini un nombre random entre 7 et 8 qui permettra d'avoir plus ou moins de couche de dirt
 		dirt_height = randi_range(7,8)
 
-
-		
 		#On parcours pour x (horizontale) les y
 		for y in range(-1,dirt_height):
 			if cave_noise.get_noise_2d(x,y) >-0.75:
@@ -88,15 +85,18 @@ func _ready():
 		BetterTerrain.update_terrain_area(tile_map,0,Rect2i(Vector2i(i,j), Vector2i(3,3)),true)
 
 func _process(delta):
+#---------------------------------------- Mise à jour herbe (minage) -------------------------------------------------------------
 	if grass_fill_dict.size() > 0:
 		for cle in grass_fill_dict:
 			grass_fill_dict[cle] += randi_range(1,5)
-			if grass_fill_dict[cle] > 10000:
+			if grass_fill_dict[cle] > 1000:
 				BetterTerrain.set_cell(tile_map, 0, cle, 2)
+				BetterTerrain.update_terrain_area(tile_map,0,Rect2i(Vector2i(cle[0]-1,cle[1]-1), Vector2i(3,3)),true)
 				grass_fill_dict.erase(cle) # Retirer la clé une fois mise à jour
+#-------------------------------------------------------------------------------------------------------------
 
-	
 func _input(event):
+#------------------------------------------ MINAGE ----------------------------------------------------------
 	if Input.is_action_pressed("chop"):
 		var mouse_pos = get_global_mouse_position()
 		var tile_pos = tile_map.local_to_map(mouse_pos)
@@ -106,18 +106,26 @@ func _input(event):
 				if tile_pos == cle:
 					grass_fill_dict.erase(cle)
 		if index != -1:
-				tile_map.erase_cell(0, tile_pos)
-				BetterTerrain.update_terrain_area(tile_map,
-				0,Rect2i((tile_pos[0]-2),(tile_pos[1]-2),3,3),true)
-				if BetterTerrain.get_cell(tile_map,0,Vector2i(tile_pos[0],tile_pos[1]+1)) != -1:
+			tile_map.erase_cell(0, tile_pos)
+			BetterTerrain.update_terrain_area(tile_map,
+			0,Rect2i((tile_pos[0]-2),(tile_pos[1]-2),3,3),true)
+			if BetterTerrain.get_cell(tile_map,0,Vector2i(tile_pos[0],tile_pos[1]+1)) != -1 :
+				var tile_meta = BetterTerrain._get_tile_meta(tile_map.get_cell_tile_data(0, Vector2i(tile_pos[0],tile_pos[1]+1))).type
+				if tile_meta == 0 or tile_meta == 2:
 					grass_fill_dict[Vector2i(tile_pos[0],tile_pos[1]+1)] = 0
-				
+#-------------------------------------------------------------------------------------------------------------
+
+#---------------------------------------- Construction -------------------------------------------------------
 	if Input.is_action_pressed("Build"):
 		var mouse_pos = get_global_mouse_position()
 		var tile_pos = tile_map.local_to_map(mouse_pos)
 		if BetterTerrain.get_cell(tile_map,0,tile_pos) == -1:
 			BetterTerrain.set_cell(tile_map,0, tile_pos, 0)
-			BetterTerrain.update_terrain_area(tile_map,
-				0,Rect2i((tile_pos[0]-2),(tile_pos[1]-2),3,3),true)
-				
+			if BetterTerrain.get_cell(tile_map,0,Vector2i(tile_pos[0],tile_pos[1]+1)) != -1 :
+				var tile_meta = BetterTerrain._get_tile_meta(tile_map.get_cell_tile_data(0, Vector2i(tile_pos[0],tile_pos[1]+1))).type
+				if tile_meta == 2:
+					BetterTerrain.set_cell(tile_map,0, Vector2i(tile_pos[0],tile_pos[1]+1), 0)	
+				BetterTerrain.update_terrain_area(tile_map,
+					0,Rect2i((tile_pos[0]-2),(tile_pos[1]-2),3,3),true)
+#-------------------------------------------------------------------------------------------------------------
 

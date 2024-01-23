@@ -14,10 +14,86 @@ extends Node2D
 @export var cave_text : NoiseTexture2D
 @export var bedrock : int = 100
 var map_height = 100
-var map_width = 200
+var map_width = 300
+
 var data_dict = {}
+var herbe_arr = []
+var background_dict = {}
 var changeset : Dictionary
+var changeset_background : Dictionary
 var is_map_ready = false
+
+
+
+func make_tree() -> void:
+	const SPAWN_TREE_RATE = 3
+	const SPAWN_STICK_RATE = 7
+	var skip =4
+	for i in range(herbe_arr.size() - 2):
+		if skip > 0:
+			skip -= 1 # Décrémenter le compteur de saut et continuer la boucle
+			continue
+		if herbe_arr[i].y == herbe_arr[i + 1].y and herbe_arr[i + 1].y == herbe_arr[i + 2].y:
+			if randi() % SPAWN_TREE_RATE == 0:
+				var count = -1
+				match randi_range(0,2):
+					0:
+						data_dict[Vector2i(herbe_arr[i].x, herbe_arr[i].y - 1)] = 8
+						for j in randi_range(8,10):
+							if count ==-1:
+								data_dict[Vector2i(herbe_arr[i].x + 1, herbe_arr[i].y + count)] = 7
+							else:
+								data_dict[Vector2i(herbe_arr[i].x + 1, herbe_arr[i].y + count)] = 8
+								if randi() % SPAWN_STICK_RATE == 0:
+									match randi_range(0,2):
+										0:
+											data_dict[Vector2i(herbe_arr[i].x , herbe_arr[i].y + count)] = 9
+										1:
+											data_dict[Vector2i(herbe_arr[i].x + 2, herbe_arr[i].y + count)] = 9
+										2:
+											data_dict[Vector2i(herbe_arr[i].x, herbe_arr[i].y + count)] = 9
+											data_dict[Vector2i(herbe_arr[i].x + 2, herbe_arr[i].y + count)] = 9
+							count -=1
+						data_dict[Vector2i(herbe_arr[i].x + 2, herbe_arr[i].y - 1)] = 8            
+						skip = 4
+
+					1:
+						data_dict[Vector2i(herbe_arr[i].x, herbe_arr[i].y - 1)] = 8
+						for j in randi_range(8,10):
+							if count ==-1:
+								data_dict[Vector2i(herbe_arr[i].x + 1, herbe_arr[i].y + count)] = 7
+							else:
+								data_dict[Vector2i(herbe_arr[i].x + 1, herbe_arr[i].y + count)] = 8
+								if randi() % SPAWN_STICK_RATE == 0:
+									match randi_range(0,2):
+										0:
+											data_dict[Vector2i(herbe_arr[i].x , herbe_arr[i].y + count)] = 9
+										1:
+											data_dict[Vector2i(herbe_arr[i].x + 2, herbe_arr[i].y + count)] = 9
+										2:
+											data_dict[Vector2i(herbe_arr[i].x, herbe_arr[i].y + count)] = 9
+											data_dict[Vector2i(herbe_arr[i].x + 2, herbe_arr[i].y + count)] = 9
+							count -=1
+						skip = 4
+					2:
+						for j in randi_range(8,10):
+							if count ==-1:
+								data_dict[Vector2i(herbe_arr[i].x , herbe_arr[i].y + count)] = 7
+							else:
+								data_dict[Vector2i(herbe_arr[i].x, herbe_arr[i].y + count)] = 8
+								if randi() % SPAWN_STICK_RATE == 0:
+									match randi_range(0,2):
+										0:
+											data_dict[Vector2i(herbe_arr[i].x-1 , herbe_arr[i].y + count)] = 9
+										1:
+											data_dict[Vector2i(herbe_arr[i].x+1, herbe_arr[i].y + count)] = 9
+										2:
+											data_dict[Vector2i(herbe_arr[i].x-1, herbe_arr[i].y + count)] = 9
+											data_dict[Vector2i(herbe_arr[i].x + 1, herbe_arr[i].y + count)] = 9
+							count -=1
+						data_dict[Vector2i(herbe_arr[i].x+1, herbe_arr[i].y - 1)] = 8
+						skip = 4
+					
 #------------------------------------------------------------------------------------------
 func make_map() -> void:
 	var cave_noise : FastNoiseLite = cave_text.noise
@@ -31,20 +107,36 @@ func make_map() -> void:
 	for x in range(map_width):
 		var noise_height = int((noise.get_noise_1d(x) * 0.5 + 0.5) * 60)
 		for y in range(map_height):
+			
+			#fleurs
+			if y == noise_height-1 and randi() % SPAWN_FLOWER_RATE == 0:
+				data_dict[Vector2i(x,y)] = 3
+
+			#herbes
+			if y == noise_height:
+				data_dict[Vector2i(x,y)] = 2
+				if cave_noise.get_noise_2d(x,y) <0.635:
+					herbe_arr.append(Vector2i(x,y))
+			
+			#terre
+			if y > noise_height and y <= noise_height + dirt_height:
+				data_dict[Vector2i(x,y)] = 0
+				background_dict[Vector2i(x,y)] = 5
+				
+			#pierre
+			if y > noise_height + dirt_height and y <= noise_height + dirt_height + stone_height:
+				data_dict[Vector2i(x,y)] = 1
+				background_dict[Vector2i(x,y)] = 6
+				
+			#cave
 			if cave_noise.get_noise_2d(x,y) >0.635:
 				data_dict[Vector2i(x,y)] = -1
-			elif y == noise_height-1 and randi() % SPAWN_FLOWER_RATE == 0:
-				data_dict[Vector2i(x,y)] = 3
-			elif y == noise_height:
-				data_dict[Vector2i(x,y)] = 2
-			elif y > noise_height and y <= noise_height + dirt_height:
-				data_dict[Vector2i(x,y)] = 0
-			elif y > noise_height + dirt_height and y <= noise_height + dirt_height + stone_height:
-				data_dict[Vector2i(x,y)] = 1
-			else:
-				pass 
+
+	make_tree()
+	
 	label_infos.text = "Génération du terrain..."
 	changeset = BetterTerrain.create_terrain_changeset(tile_map, 0, data_dict)
+	changeset_background = BetterTerrain.create_terrain_changeset(tile_map, 1, background_dict)
 
 func _ready():	
 	character.set_physics_process(false)
@@ -62,6 +154,7 @@ func _input(event):
 			0,Rect2i((tile_pos[0]-2),(tile_pos[1]-2),3,3),true)
 			if BetterTerrain.get_cell(tile_map,0,Vector2i(tile_pos[0],tile_pos[1]+1)) != -1 :
 				var tile_meta = BetterTerrain._get_tile_meta(tile_map.get_cell_tile_data(0, Vector2i(tile_pos[0],tile_pos[1]+1))).type
+				print(tile_meta)
 	#-------------------------------------------------------------------------------------------------------------
 
 	#------------------------------------------ CAMERA ----------------------------------------------------------
@@ -77,9 +170,12 @@ func _input(event):
 
 func _process(delta:float) -> void:
 	if BetterTerrain.is_terrain_changeset_ready(changeset):
-		
 		BetterTerrain.apply_terrain_changeset(changeset)
+	if BetterTerrain.is_terrain_changeset_ready(changeset_background):
+		BetterTerrain.apply_terrain_changeset(changeset_background)
+		
 		changeset = {}
+		changeset_background = {}
 		is_map_ready = true
 		label_infos.text = ""
 		label_chargement.text = ""

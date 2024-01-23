@@ -12,11 +12,13 @@ extends Node2D
 #----------------------------------- variable --------------------------------------------
 @export var noise_image : NoiseTexture2D
 @export var cave_text : NoiseTexture2D
-@export var bedrock : int = 100
-var map_height = 100
-var map_width = 200
+@export var bedrock : int = 200
+var map_height = 200
+var map_width = 400
 var data_dict = {}
+var background_dict = {}
 var changeset : Dictionary
+var changeset_background : Dictionary
 var is_map_ready = false
 #------------------------------------------------------------------------------------------
 func make_map() -> void:
@@ -33,18 +35,25 @@ func make_map() -> void:
 		for y in range(map_height):
 			if cave_noise.get_noise_2d(x,y) >0.635:
 				data_dict[Vector2i(x,y)] = -1
+				if y > noise_height and y <= noise_height + dirt_height:
+					background_dict[Vector2i(x,y)] = 5
+				elif y > noise_height + dirt_height and y <= noise_height + stone_height:
+					background_dict[Vector2i(x,y)] = 6
 			elif y == noise_height-1 and randi() % SPAWN_FLOWER_RATE == 0:
 				data_dict[Vector2i(x,y)] = 3
 			elif y == noise_height:
 				data_dict[Vector2i(x,y)] = 2
 			elif y > noise_height and y <= noise_height + dirt_height:
 				data_dict[Vector2i(x,y)] = 0
+				background_dict[Vector2i(x,y)] = 5
 			elif y > noise_height + dirt_height and y <= noise_height + dirt_height + stone_height:
 				data_dict[Vector2i(x,y)] = 1
+				background_dict[Vector2i(x,y)] = 6
 			else:
 				pass 
 	label_infos.text = "Génération du terrain..."
 	changeset = BetterTerrain.create_terrain_changeset(tile_map, 0, data_dict)
+	changeset_background = BetterTerrain.create_terrain_changeset(tile_map, 1, background_dict)
 
 func _ready():	
 	character.set_physics_process(false)
@@ -77,9 +86,12 @@ func _input(event):
 
 func _process(delta:float) -> void:
 	if BetterTerrain.is_terrain_changeset_ready(changeset):
-		
 		BetterTerrain.apply_terrain_changeset(changeset)
+	if BetterTerrain.is_terrain_changeset_ready(changeset_background):
+		BetterTerrain.apply_terrain_changeset(changeset_background)
+		
 		changeset = {}
+		changeset_background = {}
 		is_map_ready = true
 		label_infos.text = ""
 		label_chargement.text = ""

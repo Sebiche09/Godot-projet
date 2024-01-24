@@ -1,13 +1,16 @@
-[gd_scene load_steps=24 format=3 uid="uid://dcdy288jfm6b1"]
+[gd_scene load_steps=30 format=3 uid="uid://dcdy288jfm6b1"]
 
 [ext_resource type="Script" path="res://scripts/world_gen/world_gen.gd" id="1_51lve"]
 [ext_resource type="Texture2D" uid="uid://droxycwdbjwe8" path="res://assets/TilesMap.png" id="2_de1tj"]
 [ext_resource type="PackedScene" uid="uid://bias42gfi0n83" path="res://scenes/character.tscn" id="3_7vjw0"]
 [ext_resource type="Texture2D" uid="uid://bdqbimncqivb5" path="res://assets/Plante01.png" id="3_p3stf"]
+[ext_resource type="Texture2D" uid="uid://d2s8jdbwu57w" path="res://assets/Backgroundblock.png" id="4_ncv8q"]
 [ext_resource type="Texture2D" uid="uid://dk1be6rfyyyro" path="res://assets/ciel_etoile.png" id="4_unvir"]
 [ext_resource type="Texture2D" uid="uid://byn8ikj37t1fg" path="res://assets/Background_171.png" id="4_y1xpx"]
+[ext_resource type="Texture2D" uid="uid://b4l13dh8gg0a2" path="res://assets/Tronc01.png" id="5_npl85"]
 [ext_resource type="Texture2D" uid="uid://c8cbefgmfw3tf" path="res://assets/Background_278.png" id="5_sib0y"]
 [ext_resource type="PackedScene" uid="uid://dv2yd2m3ve4n6" path="res://scenes/gui.tscn" id="5_xo428"]
+[ext_resource type="Texture2D" uid="uid://dhmvlmfilhp2s" path="res://assets/stick.png" id="6_a8w1m"]
 [ext_resource type="PackedScene" uid="uid://8dtyidpr28in" path="res://scenes/chargement.tscn" id="6_ye0dg"]
 [ext_resource type="Script" path="res://scripts/soleil.gd" id="7_0nrkg"]
 [ext_resource type="Texture2D" uid="uid://bhwwv1l7lx7m7" path="res://assets/soleil.png" id="8_c7xm3"]
@@ -63,14 +66,14 @@ texture = ExtResource("2_de1tj")
 4: [0],
 "type": 2
 }
-4:0/next_alternative_id = 8
+4:0/next_alternative_id = 9
 4:0/0 = 0
 4:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 4:0/0/physics_layer_0/angular_velocity = 0.0
 4:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 4:0/0/metadata/_better_terrain = {
 0: [2],
-4: [0, 2],
+4: [2, 0],
 8: [2],
 "type": 2
 }
@@ -104,6 +107,9 @@ texture = ExtResource("2_de1tj")
 8: [0],
 "type": 2
 }
+4:0/8 = 8
+4:0/8/physics_layer_0/linear_velocity = Vector2(0, 0)
+4:0/8/physics_layer_0/angular_velocity = 0.0
 5:0/next_alternative_id = 4
 5:0/0 = 0
 5:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
@@ -765,7 +771,7 @@ texture = ExtResource("2_de1tj")
 4: [0],
 "type": 0
 }
-4:6/next_alternative_id = 2
+4:6/next_alternative_id = 4
 4:6/0 = 0
 4:6/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 4:6/0/physics_layer_0/angular_velocity = 0.0
@@ -782,6 +788,24 @@ texture = ExtResource("2_de1tj")
 4:6/1/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 4:6/1/metadata/_better_terrain = {
 0: [2],
+4: [0],
+8: [2],
+"type": 0
+}
+4:6/2 = 2
+4:6/2/physics_layer_0/linear_velocity = Vector2(0, 0)
+4:6/2/physics_layer_0/angular_velocity = 0.0
+4:6/2/metadata/_better_terrain = {
+0: [2],
+4: [0],
+8: [0],
+"type": 0
+}
+4:6/3 = 3
+4:6/3/physics_layer_0/linear_velocity = Vector2(0, 0)
+4:6/3/physics_layer_0/angular_velocity = 0.0
+4:6/3/metadata/_better_terrain = {
+0: [0],
 4: [0],
 8: [2],
 "type": 0
@@ -1114,7 +1138,7 @@ texture = ExtResource("2_de1tj")
 12: [0],
 "type": 0
 }
-5:7/next_alternative_id = 7
+5:7/next_alternative_id = 8
 5:7/0 = 0
 5:7/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 5:7/0/physics_layer_0/angular_velocity = 0.0
@@ -1145,6 +1169,9 @@ texture = ExtResource("2_de1tj")
 12: [0],
 "type": 2
 }
+5:7/7 = 7
+5:7/7/physics_layer_0/linear_velocity = Vector2(0, 0)
+5:7/7/physics_layer_0/angular_velocity = 0.0
 6:7/next_alternative_id = 3
 6:7/0 = 0
 6:7/0/physics_layer_0/linear_velocity = Vector2(0, 0)
@@ -2732,6 +2759,1503 @@ texture = ExtResource("3_p3stf")
 "type": 3
 }
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_md742"]
+texture = ExtResource("4_ncv8q")
+0:0/0 = 0
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
+0:0/0/metadata/_better_terrain = {
+0: [5],
+4: [5],
+"type": 5
+}
+1:0/next_alternative_id = 5
+1:0/0 = 0
+1:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:0/0/physics_layer_0/angular_velocity = 0.0
+1:0/0/metadata/_better_terrain = {
+0: [5],
+4: [5],
+8: [5],
+"type": 5
+}
+3:0/0 = 0
+3:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+3:0/0/physics_layer_0/angular_velocity = 0.0
+3:0/0/metadata/_better_terrain = {
+4: [5],
+"type": 5
+}
+2:0/0 = 0
+2:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+2:0/0/physics_layer_0/angular_velocity = 0.0
+2:0/0/metadata/_better_terrain = {
+4: [5],
+8: [5],
+"type": 5
+}
+0:1/0 = 0
+0:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:1/0/physics_layer_0/angular_velocity = 0.0
+0:1/0/metadata/_better_terrain = {
+0: [5],
+4: [5],
+12: [5],
+"type": 5
+}
+1:1/next_alternative_id = 68
+1:1/0 = 0
+1:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:1/0/physics_layer_0/angular_velocity = 0.0
+1:1/0/metadata/_better_terrain = {
+0: [5],
+4: [5],
+8: [5],
+12: [5],
+"type": 5
+}
+1:1/1 = 1
+1:1/1/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:1/1/physics_layer_0/angular_velocity = 0.0
+1:1/1/metadata/_better_terrain = {
+12: [6],
+"type": 5
+}
+1:1/2 = 2
+1:1/2/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:1/2/physics_layer_0/angular_velocity = 0.0
+1:1/2/metadata/_better_terrain = {
+0: [6],
+"type": 5
+}
+1:1/3 = 3
+1:1/3/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:1/3/physics_layer_0/angular_velocity = 0.0
+1:1/3/metadata/_better_terrain = {
+4: [6],
+"type": 5
+}
+1:1/4 = 4
+1:1/4/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:1/4/physics_layer_0/angular_velocity = 0.0
+1:1/4/metadata/_better_terrain = {
+8: [6],
+"type": 5
+}
+1:1/5 = 5
+1:1/5/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:1/5/physics_layer_0/angular_velocity = 0.0
+1:1/5/metadata/_better_terrain = {
+0: [6],
+4: [6],
+"type": 5
+}
+1:1/6 = 6
+1:1/6/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:1/6/physics_layer_0/angular_velocity = 0.0
+1:1/6/metadata/_better_terrain = {
+0: [6],
+8: [6],
+"type": 5
+}
+1:1/7 = 7
+1:1/7/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:1/7/physics_layer_0/angular_velocity = 0.0
+1:1/7/metadata/_better_terrain = {
+4: [6],
+8: [6],
+"type": 5
+}
+1:1/8 = 8
+1:1/8/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:1/8/physics_layer_0/angular_velocity = 0.0
+1:1/8/metadata/_better_terrain = {
+0: [6],
+12: [6],
+"type": 5
+}
+1:1/9 = 9
+1:1/9/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:1/9/physics_layer_0/angular_velocity = 0.0
+1:1/9/metadata/_better_terrain = {
+4: [6],
+12: [6],
+"type": 5
+}
+1:1/10 = 10
+1:1/10/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:1/10/physics_layer_0/angular_velocity = 0.0
+1:1/10/metadata/_better_terrain = {
+8: [6],
+12: [6],
+"type": 5
+}
+1:1/11 = 11
+1:1/11/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:1/11/physics_layer_0/angular_velocity = 0.0
+1:1/11/metadata/_better_terrain = {
+0: [6],
+8: [6],
+12: [6],
+"type": 5
+}
+1:1/12 = 12
+1:1/12/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:1/12/physics_layer_0/angular_velocity = 0.0
+1:1/12/metadata/_better_terrain = {
+0: [6],
+4: [6],
+12: [6],
+"type": 5
+}
+1:1/13 = 13
+1:1/13/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:1/13/physics_layer_0/angular_velocity = 0.0
+1:1/13/metadata/_better_terrain = {
+0: [6],
+4: [6],
+8: [6],
+"type": 5
+}
+1:1/14 = 14
+1:1/14/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:1/14/physics_layer_0/angular_velocity = 0.0
+1:1/14/metadata/_better_terrain = {
+4: [6],
+8: [6],
+12: [6],
+"type": 5
+}
+1:1/15 = 15
+1:1/15/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:1/15/physics_layer_0/angular_velocity = 0.0
+1:1/15/metadata/_better_terrain = {
+0: [6],
+12: [5],
+"type": 5
+}
+1:1/16 = 16
+1:1/16/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:1/16/physics_layer_0/angular_velocity = 0.0
+1:1/16/metadata/_better_terrain = {
+4: [6],
+12: [5],
+"type": 5
+}
+1:1/17 = 17
+1:1/17/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:1/17/physics_layer_0/angular_velocity = 0.0
+1:1/17/metadata/_better_terrain = {
+8: [6],
+12: [5],
+"type": 5
+}
+1:1/18 = 18
+1:1/18/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:1/18/physics_layer_0/angular_velocity = 0.0
+1:1/18/metadata/_better_terrain = {
+0: [6],
+4: [6],
+12: [5],
+"type": 5
+}
+1:1/19 = 19
+1:1/19/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:1/19/physics_layer_0/angular_velocity = 0.0
+1:1/19/metadata/_better_terrain = {
+0: [6],
+8: [6],
+12: [5],
+"type": 5
+}
+1:1/20 = 20
+1:1/20/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:1/20/physics_layer_0/angular_velocity = 0.0
+1:1/20/metadata/_better_terrain = {
+4: [6],
+8: [6],
+12: [5],
+"type": 5
+}
+1:1/21 = 21
+1:1/21/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:1/21/physics_layer_0/angular_velocity = 0.0
+1:1/21/metadata/_better_terrain = {
+0: [6],
+4: [6],
+8: [6],
+12: [5],
+"type": 5
+}
+1:1/22 = 22
+1:1/22/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:1/22/physics_layer_0/angular_velocity = 0.0
+1:1/22/metadata/_better_terrain = {
+0: [5],
+4: [6],
+"type": 5
+}
+1:1/23 = 23
+1:1/23/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:1/23/physics_layer_0/angular_velocity = 0.0
+1:1/23/metadata/_better_terrain = {
+0: [5],
+8: [6],
+"type": 5
+}
+1:1/24 = 24
+1:1/24/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:1/24/physics_layer_0/angular_velocity = 0.0
+1:1/24/metadata/_better_terrain = {
+0: [5],
+12: [6],
+"type": 5
+}
+1:1/25 = 25
+1:1/25/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:1/25/physics_layer_0/angular_velocity = 0.0
+1:1/25/metadata/_better_terrain = {
+0: [5],
+4: [6],
+8: [6],
+"type": 5
+}
+1:1/26 = 26
+1:1/26/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:1/26/physics_layer_0/angular_velocity = 0.0
+1:1/26/metadata/_better_terrain = {
+0: [5],
+4: [6],
+12: [6],
+"type": 5
+}
+1:1/27 = 27
+1:1/27/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:1/27/physics_layer_0/angular_velocity = 0.0
+1:1/27/metadata/_better_terrain = {
+0: [5],
+8: [6],
+12: [6],
+"type": 5
+}
+1:1/28 = 28
+1:1/28/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:1/28/physics_layer_0/angular_velocity = 0.0
+1:1/28/metadata/_better_terrain = {
+0: [5],
+4: [6],
+8: [6],
+12: [6],
+"type": 5
+}
+1:1/29 = 29
+1:1/29/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:1/29/physics_layer_0/angular_velocity = 0.0
+1:1/29/metadata/_better_terrain = {
+4: [5],
+8: [6],
+"type": 5
+}
+1:1/30 = 30
+1:1/30/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:1/30/physics_layer_0/angular_velocity = 0.0
+1:1/30/metadata/_better_terrain = {
+4: [5],
+12: [6],
+"type": 5
+}
+1:1/31 = 31
+1:1/31/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:1/31/physics_layer_0/angular_velocity = 0.0
+1:1/31/metadata/_better_terrain = {
+0: [6],
+4: [5],
+"type": 5
+}
+1:1/32 = 32
+1:1/32/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:1/32/physics_layer_0/angular_velocity = 0.0
+1:1/32/metadata/_better_terrain = {
+4: [5],
+8: [6],
+12: [6],
+"type": 5
+}
+1:1/33 = 33
+1:1/33/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:1/33/physics_layer_0/angular_velocity = 0.0
+1:1/33/metadata/_better_terrain = {
+0: [6],
+4: [5],
+8: [6],
+"type": 5
+}
+1:1/34 = 34
+1:1/34/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:1/34/physics_layer_0/angular_velocity = 0.0
+1:1/34/metadata/_better_terrain = {
+0: [6],
+3: [8],
+4: [5],
+12: [6],
+"type": 5
+}
+1:1/35 = 35
+1:1/35/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:1/35/physics_layer_0/angular_velocity = 0.0
+1:1/35/metadata/_better_terrain = {
+0: [6],
+4: [5],
+8: [6],
+12: [6],
+"type": 5
+}
+1:1/36 = 36
+1:1/36/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:1/36/physics_layer_0/angular_velocity = 0.0
+1:1/36/metadata/_better_terrain = {
+8: [5],
+12: [6],
+"type": 5
+}
+1:1/37 = 37
+1:1/37/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:1/37/physics_layer_0/angular_velocity = 0.0
+1:1/37/metadata/_better_terrain = {
+0: [6],
+8: [5],
+"type": 5
+}
+1:1/38 = 38
+1:1/38/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:1/38/physics_layer_0/angular_velocity = 0.0
+1:1/38/metadata/_better_terrain = {
+4: [6],
+8: [5],
+"type": 5
+}
+1:1/39 = 39
+1:1/39/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:1/39/physics_layer_0/angular_velocity = 0.0
+1:1/39/metadata/_better_terrain = {
+0: [6],
+8: [5],
+12: [6],
+"type": 5
+}
+1:1/40 = 40
+1:1/40/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:1/40/physics_layer_0/angular_velocity = 0.0
+1:1/40/metadata/_better_terrain = {
+4: [6],
+8: [5],
+12: [6],
+"type": 5
+}
+1:1/41 = 41
+1:1/41/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:1/41/physics_layer_0/angular_velocity = 0.0
+1:1/41/metadata/_better_terrain = {
+0: [6],
+4: [6],
+8: [5],
+"type": 5
+}
+1:1/42 = 42
+1:1/42/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:1/42/physics_layer_0/angular_velocity = 0.0
+1:1/42/metadata/_better_terrain = {
+0: [6],
+4: [6],
+8: [5],
+12: [6],
+"type": 5
+}
+1:1/43 = 43
+1:1/43/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:1/43/physics_layer_0/angular_velocity = 0.0
+1:1/43/metadata/_better_terrain = {
+0: [5],
+4: [6],
+8: [5],
+12: [5],
+"type": 5
+}
+1:1/44 = 44
+1:1/44/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:1/44/physics_layer_0/angular_velocity = 0.0
+1:1/44/metadata/_better_terrain = {
+0: [5],
+4: [5],
+8: [6],
+12: [5],
+"type": 5
+}
+1:1/45 = 45
+1:1/45/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:1/45/physics_layer_0/angular_velocity = 0.0
+1:1/45/metadata/_better_terrain = {
+0: [5],
+4: [5],
+8: [5],
+12: [6],
+"type": 5
+}
+1:1/46 = 46
+1:1/46/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:1/46/physics_layer_0/angular_velocity = 0.0
+1:1/46/metadata/_better_terrain = {
+0: [6],
+4: [5],
+8: [5],
+12: [5],
+"type": 5
+}
+1:1/47 = 47
+1:1/47/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:1/47/physics_layer_0/angular_velocity = 0.0
+1:1/47/metadata/_better_terrain = {
+0: [5],
+4: [6],
+12: [5],
+"type": 5
+}
+1:1/48 = 48
+1:1/48/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:1/48/physics_layer_0/angular_velocity = 0.0
+1:1/48/metadata/_better_terrain = {
+0: [5],
+8: [6],
+12: [5],
+"type": 5
+}
+1:1/49 = 49
+1:1/49/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:1/49/physics_layer_0/angular_velocity = 0.0
+1:1/49/metadata/_better_terrain = {
+0: [5],
+4: [6],
+8: [6],
+12: [5],
+"type": 5
+}
+1:1/50 = 50
+1:1/50/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:1/50/physics_layer_0/angular_velocity = 0.0
+1:1/50/metadata/_better_terrain = {
+4: [6],
+8: [5],
+12: [5],
+"type": 5
+}
+1:1/51 = 51
+1:1/51/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:1/51/physics_layer_0/angular_velocity = 0.0
+1:1/51/metadata/_better_terrain = {
+0: [6],
+8: [5],
+12: [5],
+"type": 5
+}
+1:1/52 = 52
+1:1/52/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:1/52/physics_layer_0/angular_velocity = 0.0
+1:1/52/metadata/_better_terrain = {
+0: [6],
+4: [6],
+8: [5],
+12: [5],
+"type": 5
+}
+1:1/53 = 53
+1:1/53/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:1/53/physics_layer_0/angular_velocity = 0.0
+1:1/53/metadata/_better_terrain = {
+0: [5],
+4: [5],
+8: [6],
+"type": 5
+}
+1:1/54 = 54
+1:1/54/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:1/54/physics_layer_0/angular_velocity = 0.0
+1:1/54/metadata/_better_terrain = {
+0: [5],
+4: [5],
+12: [6],
+"type": 5
+}
+1:1/55 = 55
+1:1/55/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:1/55/physics_layer_0/angular_velocity = 0.0
+1:1/55/metadata/_better_terrain = {
+0: [5],
+4: [5],
+8: [6],
+12: [6],
+"type": 5
+}
+1:1/56 = 56
+1:1/56/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:1/56/physics_layer_0/angular_velocity = 0.0
+1:1/56/metadata/_better_terrain = {
+0: [6],
+4: [5],
+8: [5],
+"type": 5
+}
+1:1/57 = 57
+1:1/57/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:1/57/physics_layer_0/angular_velocity = 0.0
+1:1/57/metadata/_better_terrain = {
+4: [5],
+8: [5],
+12: [6],
+"type": 5
+}
+1:1/58 = 58
+1:1/58/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:1/58/physics_layer_0/angular_velocity = 0.0
+1:1/58/metadata/_better_terrain = {
+0: [6],
+4: [5],
+8: [5],
+12: [6],
+"type": 5
+}
+1:1/59 = 59
+1:1/59/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:1/59/physics_layer_0/angular_velocity = 0.0
+1:1/59/metadata/_better_terrain = {
+4: [5],
+8: [6],
+12: [5],
+"type": 5
+}
+1:1/60 = 60
+1:1/60/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:1/60/physics_layer_0/angular_velocity = 0.0
+1:1/60/metadata/_better_terrain = {
+0: [6],
+4: [5],
+12: [5],
+"type": 5
+}
+1:1/61 = 61
+1:1/61/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:1/61/physics_layer_0/angular_velocity = 0.0
+1:1/61/metadata/_better_terrain = {
+0: [6],
+4: [5],
+8: [6],
+12: [5],
+"type": 5
+}
+1:1/62 = 62
+1:1/62/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:1/62/physics_layer_0/angular_velocity = 0.0
+1:1/62/metadata/_better_terrain = {
+0: [5],
+8: [5],
+12: [6],
+"type": 5
+}
+1:1/63 = 63
+1:1/63/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:1/63/physics_layer_0/angular_velocity = 0.0
+1:1/63/metadata/_better_terrain = {
+0: [5],
+4: [6],
+8: [5],
+"type": 5
+}
+1:1/64 = 64
+1:1/64/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:1/64/physics_layer_0/angular_velocity = 0.0
+1:1/64/metadata/_better_terrain = {
+0: [5],
+4: [6],
+8: [5],
+12: [6],
+"type": 5
+}
+2:1/0 = 0
+2:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+2:1/0/physics_layer_0/angular_velocity = 0.0
+2:1/0/metadata/_better_terrain = {
+4: [5],
+8: [5],
+12: [5],
+"type": 5
+}
+3:1/0 = 0
+3:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+3:1/0/physics_layer_0/angular_velocity = 0.0
+3:1/0/metadata/_better_terrain = {
+4: [5],
+12: [5],
+"type": 5
+}
+2:2/0 = 0
+2:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+2:2/0/physics_layer_0/angular_velocity = 0.0
+2:2/0/metadata/_better_terrain = {
+8: [5],
+12: [5],
+"type": 5
+}
+1:2/0 = 0
+1:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:2/0/physics_layer_0/angular_velocity = 0.0
+1:2/0/metadata/_better_terrain = {
+0: [5],
+8: [5],
+12: [5],
+"type": 5
+}
+1:3/0 = 0
+1:3/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:3/0/physics_layer_0/angular_velocity = 0.0
+1:3/0/metadata/_better_terrain = {
+0: [5],
+8: [5],
+"type": 5
+}
+0:3/0 = 0
+0:3/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:3/0/physics_layer_0/angular_velocity = 0.0
+0:3/0/metadata/_better_terrain = {
+0: [5],
+"type": 5
+}
+0:2/0 = 0
+0:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:2/0/physics_layer_0/angular_velocity = 0.0
+0:2/0/metadata/_better_terrain = {
+0: [5],
+12: [5],
+"type": 5
+}
+2:3/0 = 0
+2:3/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+2:3/0/physics_layer_0/angular_velocity = 0.0
+2:3/0/metadata/_better_terrain = {
+8: [5],
+"type": 5
+}
+3:3/0 = 0
+3:3/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+3:3/0/physics_layer_0/angular_velocity = 0.0
+3:3/0/metadata/_better_terrain = {
+"type": 5
+}
+3:2/0 = 0
+3:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+3:2/0/physics_layer_0/angular_velocity = 0.0
+3:2/0/metadata/_better_terrain = {
+12: [5],
+"type": 5
+}
+4:2/0 = 0
+4:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+4:2/0/physics_layer_0/angular_velocity = 0.0
+4:2/0/metadata/_better_terrain = {
+0: [6],
+12: [6],
+"type": 6
+}
+4:3/0 = 0
+4:3/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+4:3/0/physics_layer_0/angular_velocity = 0.0
+4:3/0/metadata/_better_terrain = {
+0: [6],
+"type": 6
+}
+5:3/0 = 0
+5:3/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+5:3/0/physics_layer_0/angular_velocity = 0.0
+5:3/0/metadata/_better_terrain = {
+0: [6],
+8: [6],
+"type": 6
+}
+6:3/0 = 0
+6:3/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+6:3/0/physics_layer_0/angular_velocity = 0.0
+6:3/0/metadata/_better_terrain = {
+8: [6],
+"type": 6
+}
+7:3/0 = 0
+7:3/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+7:3/0/physics_layer_0/angular_velocity = 0.0
+7:3/0/metadata/_better_terrain = {
+"type": 6
+}
+7:2/0 = 0
+7:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+7:2/0/physics_layer_0/angular_velocity = 0.0
+7:2/0/metadata/_better_terrain = {
+12: [6],
+"type": 6
+}
+6:2/0 = 0
+6:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+6:2/0/physics_layer_0/angular_velocity = 0.0
+6:2/0/metadata/_better_terrain = {
+8: [6],
+12: [6],
+"type": 6
+}
+5:2/0 = 0
+5:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+5:2/0/physics_layer_0/angular_velocity = 0.0
+5:2/0/metadata/_better_terrain = {
+0: [6],
+8: [6],
+12: [6],
+"type": 6
+}
+6:1/0 = 0
+6:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+6:1/0/physics_layer_0/angular_velocity = 0.0
+6:1/0/metadata/_better_terrain = {
+4: [6],
+8: [6],
+12: [6],
+"type": 6
+}
+5:1/next_alternative_id = 69
+5:1/0 = 0
+5:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+5:1/0/physics_layer_0/angular_velocity = 0.0
+5:1/0/metadata/_better_terrain = {
+0: [6],
+4: [6],
+8: [6],
+12: [6],
+"type": 6
+}
+5:1/1 = 1
+5:1/1/physics_layer_0/linear_velocity = Vector2(0, 0)
+5:1/1/physics_layer_0/angular_velocity = 0.0
+5:1/1/metadata/_better_terrain = {
+12: [5],
+"type": 6
+}
+5:1/2 = 2
+5:1/2/physics_layer_0/linear_velocity = Vector2(0, 0)
+5:1/2/physics_layer_0/angular_velocity = 0.0
+5:1/2/metadata/_better_terrain = {
+0: [5],
+"type": 6
+}
+5:1/3 = 3
+5:1/3/physics_layer_0/linear_velocity = Vector2(0, 0)
+5:1/3/physics_layer_0/angular_velocity = 0.0
+5:1/3/metadata/_better_terrain = {
+4: [5],
+"type": 6
+}
+5:1/4 = 4
+5:1/4/physics_layer_0/linear_velocity = Vector2(0, 0)
+5:1/4/physics_layer_0/angular_velocity = 0.0
+5:1/4/metadata/_better_terrain = {
+8: [5],
+"type": 6
+}
+5:1/5 = 5
+5:1/5/physics_layer_0/linear_velocity = Vector2(0, 0)
+5:1/5/physics_layer_0/angular_velocity = 0.0
+5:1/5/metadata/_better_terrain = {
+0: [5],
+4: [5],
+"type": 6
+}
+5:1/6 = 6
+5:1/6/physics_layer_0/linear_velocity = Vector2(0, 0)
+5:1/6/physics_layer_0/angular_velocity = 0.0
+5:1/6/metadata/_better_terrain = {
+0: [5],
+8: [5],
+"type": 6
+}
+5:1/7 = 7
+5:1/7/physics_layer_0/linear_velocity = Vector2(0, 0)
+5:1/7/physics_layer_0/angular_velocity = 0.0
+5:1/7/metadata/_better_terrain = {
+4: [5],
+8: [5],
+"type": 6
+}
+5:1/8 = 8
+5:1/8/physics_layer_0/linear_velocity = Vector2(0, 0)
+5:1/8/physics_layer_0/angular_velocity = 0.0
+5:1/8/metadata/_better_terrain = {
+0: [5],
+12: [5],
+"type": 6
+}
+5:1/9 = 9
+5:1/9/physics_layer_0/linear_velocity = Vector2(0, 0)
+5:1/9/physics_layer_0/angular_velocity = 0.0
+5:1/9/metadata/_better_terrain = {
+4: [5],
+12: [5],
+"type": 6
+}
+5:1/10 = 10
+5:1/10/physics_layer_0/linear_velocity = Vector2(0, 0)
+5:1/10/physics_layer_0/angular_velocity = 0.0
+5:1/10/metadata/_better_terrain = {
+8: [5],
+12: [5],
+"type": 6
+}
+5:1/11 = 11
+5:1/11/physics_layer_0/linear_velocity = Vector2(0, 0)
+5:1/11/physics_layer_0/angular_velocity = 0.0
+5:1/11/metadata/_better_terrain = {
+0: [5],
+8: [5],
+12: [5],
+"type": 6
+}
+5:1/12 = 12
+5:1/12/physics_layer_0/linear_velocity = Vector2(0, 0)
+5:1/12/physics_layer_0/angular_velocity = 0.0
+5:1/12/metadata/_better_terrain = {
+0: [5],
+8: [5],
+12: [5],
+"type": 6
+}
+5:1/13 = 13
+5:1/13/physics_layer_0/linear_velocity = Vector2(0, 0)
+5:1/13/physics_layer_0/angular_velocity = 0.0
+5:1/13/metadata/_better_terrain = {
+0: [5],
+4: [5],
+12: [5],
+"type": 6
+}
+5:1/14 = 14
+5:1/14/physics_layer_0/linear_velocity = Vector2(0, 0)
+5:1/14/physics_layer_0/angular_velocity = 0.0
+5:1/14/metadata/_better_terrain = {
+4: [5],
+8: [5],
+12: [5],
+"type": 6
+}
+5:1/15 = 15
+5:1/15/physics_layer_0/linear_velocity = Vector2(0, 0)
+5:1/15/physics_layer_0/angular_velocity = 0.0
+5:1/15/metadata/_better_terrain = {
+0: [5],
+12: [6],
+"type": 6
+}
+5:1/16 = 16
+5:1/16/physics_layer_0/linear_velocity = Vector2(0, 0)
+5:1/16/physics_layer_0/angular_velocity = 0.0
+5:1/16/metadata/_better_terrain = {
+4: [5],
+12: [6],
+"type": 6
+}
+5:1/17 = 17
+5:1/17/physics_layer_0/linear_velocity = Vector2(0, 0)
+5:1/17/physics_layer_0/angular_velocity = 0.0
+5:1/17/metadata/_better_terrain = {
+8: [5],
+12: [6],
+"type": 6
+}
+5:1/18 = 18
+5:1/18/physics_layer_0/linear_velocity = Vector2(0, 0)
+5:1/18/physics_layer_0/angular_velocity = 0.0
+5:1/18/metadata/_better_terrain = {
+0: [5],
+4: [5],
+12: [6],
+"type": 6
+}
+5:1/19 = 19
+5:1/19/physics_layer_0/linear_velocity = Vector2(0, 0)
+5:1/19/physics_layer_0/angular_velocity = 0.0
+5:1/19/metadata/_better_terrain = {
+0: [5],
+8: [5],
+12: [6],
+"type": 6
+}
+5:1/20 = 20
+5:1/20/physics_layer_0/linear_velocity = Vector2(0, 0)
+5:1/20/physics_layer_0/angular_velocity = 0.0
+5:1/20/metadata/_better_terrain = {
+4: [5],
+8: [5],
+12: [6],
+"type": 6
+}
+5:1/21 = 21
+5:1/21/physics_layer_0/linear_velocity = Vector2(0, 0)
+5:1/21/physics_layer_0/angular_velocity = 0.0
+5:1/21/metadata/_better_terrain = {
+0: [5],
+4: [5],
+8: [5],
+12: [6],
+"type": 6
+}
+5:1/22 = 22
+5:1/22/physics_layer_0/linear_velocity = Vector2(0, 0)
+5:1/22/physics_layer_0/angular_velocity = 0.0
+5:1/22/metadata/_better_terrain = {
+0: [6],
+4: [5],
+"type": 6
+}
+5:1/23 = 23
+5:1/23/physics_layer_0/linear_velocity = Vector2(0, 0)
+5:1/23/physics_layer_0/angular_velocity = 0.0
+5:1/23/metadata/_better_terrain = {
+0: [6],
+8: [5],
+"type": 6
+}
+5:1/24 = 24
+5:1/24/physics_layer_0/linear_velocity = Vector2(0, 0)
+5:1/24/physics_layer_0/angular_velocity = 0.0
+5:1/24/metadata/_better_terrain = {
+0: [6],
+12: [5],
+"type": 6
+}
+5:1/25 = 25
+5:1/25/physics_layer_0/linear_velocity = Vector2(0, 0)
+5:1/25/physics_layer_0/angular_velocity = 0.0
+5:1/25/metadata/_better_terrain = {
+0: [6],
+4: [5],
+8: [5],
+"type": 6
+}
+5:1/26 = 26
+5:1/26/physics_layer_0/linear_velocity = Vector2(0, 0)
+5:1/26/physics_layer_0/angular_velocity = 0.0
+5:1/26/metadata/_better_terrain = {
+0: [6],
+4: [5],
+12: [5],
+"type": 6
+}
+5:1/27 = 27
+5:1/27/physics_layer_0/linear_velocity = Vector2(0, 0)
+5:1/27/physics_layer_0/angular_velocity = 0.0
+5:1/27/metadata/_better_terrain = {
+0: [6],
+8: [5],
+12: [5],
+"type": 6
+}
+5:1/28 = 28
+5:1/28/physics_layer_0/linear_velocity = Vector2(0, 0)
+5:1/28/physics_layer_0/angular_velocity = 0.0
+5:1/28/metadata/_better_terrain = {
+0: [6],
+4: [5],
+8: [5],
+12: [5],
+"type": 6
+}
+5:1/29 = 29
+5:1/29/physics_layer_0/linear_velocity = Vector2(0, 0)
+5:1/29/physics_layer_0/angular_velocity = 0.0
+5:1/29/metadata/_better_terrain = {
+4: [6],
+8: [5],
+"type": 6
+}
+5:1/30 = 30
+5:1/30/physics_layer_0/linear_velocity = Vector2(0, 0)
+5:1/30/physics_layer_0/angular_velocity = 0.0
+5:1/30/metadata/_better_terrain = {
+4: [6],
+12: [5],
+"type": 6
+}
+5:1/31 = 31
+5:1/31/physics_layer_0/linear_velocity = Vector2(0, 0)
+5:1/31/physics_layer_0/angular_velocity = 0.0
+5:1/31/metadata/_better_terrain = {
+0: [5],
+4: [6],
+"type": 6
+}
+5:1/32 = 32
+5:1/32/physics_layer_0/linear_velocity = Vector2(0, 0)
+5:1/32/physics_layer_0/angular_velocity = 0.0
+5:1/32/metadata/_better_terrain = {
+4: [6],
+8: [5],
+12: [5],
+"type": 6
+}
+5:1/33 = 33
+5:1/33/physics_layer_0/linear_velocity = Vector2(0, 0)
+5:1/33/physics_layer_0/angular_velocity = 0.0
+5:1/33/metadata/_better_terrain = {
+0: [5],
+4: [6],
+8: [5],
+"type": 6
+}
+5:1/34 = 34
+5:1/34/physics_layer_0/linear_velocity = Vector2(0, 0)
+5:1/34/physics_layer_0/angular_velocity = 0.0
+5:1/34/metadata/_better_terrain = {
+0: [5],
+4: [6],
+12: [5],
+"type": 6
+}
+5:1/35 = 35
+5:1/35/physics_layer_0/linear_velocity = Vector2(0, 0)
+5:1/35/physics_layer_0/angular_velocity = 0.0
+5:1/35/metadata/_better_terrain = {
+0: [5],
+4: [6],
+8: [5],
+12: [5],
+"type": 6
+}
+5:1/36 = 36
+5:1/36/physics_layer_0/linear_velocity = Vector2(0, 0)
+5:1/36/physics_layer_0/angular_velocity = 0.0
+5:1/36/metadata/_better_terrain = {
+8: [6],
+12: [5],
+"type": 6
+}
+5:1/37 = 37
+5:1/37/physics_layer_0/linear_velocity = Vector2(0, 0)
+5:1/37/physics_layer_0/angular_velocity = 0.0
+5:1/37/metadata/_better_terrain = {
+0: [5],
+8: [6],
+"type": 6
+}
+5:1/38 = 38
+5:1/38/physics_layer_0/linear_velocity = Vector2(0, 0)
+5:1/38/physics_layer_0/angular_velocity = 0.0
+5:1/38/metadata/_better_terrain = {
+4: [5],
+8: [6],
+"type": 6
+}
+5:1/39 = 39
+5:1/39/physics_layer_0/linear_velocity = Vector2(0, 0)
+5:1/39/physics_layer_0/angular_velocity = 0.0
+5:1/39/metadata/_better_terrain = {
+0: [5],
+8: [6],
+12: [5],
+"type": 6
+}
+5:1/40 = 40
+5:1/40/physics_layer_0/linear_velocity = Vector2(0, 0)
+5:1/40/physics_layer_0/angular_velocity = 0.0
+5:1/40/metadata/_better_terrain = {
+4: [5],
+8: [6],
+12: [5],
+"type": 6
+}
+5:1/41 = 41
+5:1/41/physics_layer_0/linear_velocity = Vector2(0, 0)
+5:1/41/physics_layer_0/angular_velocity = 0.0
+5:1/41/metadata/_better_terrain = {
+0: [5],
+4: [5],
+8: [6],
+"type": 6
+}
+5:1/42 = 42
+5:1/42/physics_layer_0/linear_velocity = Vector2(0, 0)
+5:1/42/physics_layer_0/angular_velocity = 0.0
+5:1/42/metadata/_better_terrain = {
+0: [5],
+4: [5],
+8: [6],
+12: [5],
+"type": 6
+}
+5:1/43 = 43
+5:1/43/physics_layer_0/linear_velocity = Vector2(0, 0)
+5:1/43/physics_layer_0/angular_velocity = 0.0
+5:1/43/metadata/_better_terrain = {
+0: [6],
+4: [5],
+8: [6],
+12: [6],
+"type": 6
+}
+5:1/44 = 44
+5:1/44/physics_layer_0/linear_velocity = Vector2(0, 0)
+5:1/44/physics_layer_0/angular_velocity = 0.0
+5:1/44/metadata/_better_terrain = {
+0: [6],
+4: [6],
+8: [5],
+12: [6],
+"type": 6
+}
+5:1/45 = 45
+5:1/45/physics_layer_0/linear_velocity = Vector2(0, 0)
+5:1/45/physics_layer_0/angular_velocity = 0.0
+5:1/45/metadata/_better_terrain = {
+0: [6],
+4: [6],
+8: [6],
+12: [5],
+"type": 6
+}
+5:1/46 = 46
+5:1/46/physics_layer_0/linear_velocity = Vector2(0, 0)
+5:1/46/physics_layer_0/angular_velocity = 0.0
+5:1/46/metadata/_better_terrain = {
+0: [5],
+4: [6],
+8: [6],
+12: [6],
+"type": 6
+}
+5:1/47 = 47
+5:1/47/physics_layer_0/linear_velocity = Vector2(0, 0)
+5:1/47/physics_layer_0/angular_velocity = 0.0
+5:1/47/metadata/_better_terrain = {
+0: [6],
+4: [5],
+12: [6],
+"type": 6
+}
+5:1/48 = 48
+5:1/48/physics_layer_0/linear_velocity = Vector2(0, 0)
+5:1/48/physics_layer_0/angular_velocity = 0.0
+5:1/48/metadata/_better_terrain = {
+0: [6],
+8: [5],
+12: [6],
+"type": 6
+}
+5:1/49 = 49
+5:1/49/physics_layer_0/linear_velocity = Vector2(0, 0)
+5:1/49/physics_layer_0/angular_velocity = 0.0
+5:1/49/metadata/_better_terrain = {
+0: [6],
+4: [5],
+8: [5],
+12: [6],
+"type": 6
+}
+5:1/50 = 50
+5:1/50/physics_layer_0/linear_velocity = Vector2(0, 0)
+5:1/50/physics_layer_0/angular_velocity = 0.0
+5:1/50/metadata/_better_terrain = {
+0: [5],
+8: [6],
+12: [6],
+"type": 6
+}
+5:1/51 = 51
+5:1/51/physics_layer_0/linear_velocity = Vector2(0, 0)
+5:1/51/physics_layer_0/angular_velocity = 0.0
+5:1/51/metadata/_better_terrain = {
+4: [5],
+8: [6],
+12: [6],
+"type": 6
+}
+5:1/52 = 52
+5:1/52/physics_layer_0/linear_velocity = Vector2(0, 0)
+5:1/52/physics_layer_0/angular_velocity = 0.0
+5:1/52/metadata/_better_terrain = {
+0: [5],
+4: [5],
+8: [6],
+12: [6],
+"type": 6
+}
+5:1/53 = 53
+5:1/53/physics_layer_0/linear_velocity = Vector2(0, 0)
+5:1/53/physics_layer_0/angular_velocity = 0.0
+5:1/53/metadata/_better_terrain = {
+0: [6],
+4: [6],
+8: [5],
+"type": 6
+}
+5:1/54 = 54
+5:1/54/physics_layer_0/linear_velocity = Vector2(0, 0)
+5:1/54/physics_layer_0/angular_velocity = 0.0
+5:1/54/metadata/_better_terrain = {
+0: [6],
+4: [6],
+12: [5],
+"type": 6
+}
+5:1/55 = 55
+5:1/55/physics_layer_0/linear_velocity = Vector2(0, 0)
+5:1/55/physics_layer_0/angular_velocity = 0.0
+5:1/55/metadata/_better_terrain = {
+0: [6],
+4: [6],
+8: [5],
+12: [5],
+"type": 6
+}
+5:1/56 = 56
+5:1/56/physics_layer_0/linear_velocity = Vector2(0, 0)
+5:1/56/physics_layer_0/angular_velocity = 0.0
+5:1/56/metadata/_better_terrain = {
+4: [6],
+8: [6],
+12: [5],
+"type": 6
+}
+5:1/57 = 57
+5:1/57/physics_layer_0/linear_velocity = Vector2(0, 0)
+5:1/57/physics_layer_0/angular_velocity = 0.0
+5:1/57/metadata/_better_terrain = {
+0: [5],
+4: [6],
+8: [6],
+"type": 6
+}
+5:1/58 = 58
+5:1/58/physics_layer_0/linear_velocity = Vector2(0, 0)
+5:1/58/physics_layer_0/angular_velocity = 0.0
+5:1/58/metadata/_better_terrain = {
+0: [5],
+4: [6],
+8: [6],
+12: [5],
+"type": 6
+}
+5:1/59 = 59
+5:1/59/physics_layer_0/linear_velocity = Vector2(0, 0)
+5:1/59/physics_layer_0/angular_velocity = 0.0
+5:1/59/metadata/_better_terrain = {
+4: [6],
+8: [5],
+12: [6],
+"type": 6
+}
+5:1/60 = 60
+5:1/60/physics_layer_0/linear_velocity = Vector2(0, 0)
+5:1/60/physics_layer_0/angular_velocity = 0.0
+5:1/60/metadata/_better_terrain = {
+0: [5],
+4: [6],
+12: [6],
+"type": 6
+}
+5:1/61 = 61
+5:1/61/physics_layer_0/linear_velocity = Vector2(0, 0)
+5:1/61/physics_layer_0/angular_velocity = 0.0
+5:1/61/metadata/_better_terrain = {
+0: [5],
+4: [6],
+8: [5],
+12: [6],
+"type": 6
+}
+5:1/62 = 62
+5:1/62/physics_layer_0/linear_velocity = Vector2(0, 0)
+5:1/62/physics_layer_0/angular_velocity = 0.0
+5:1/62/metadata/_better_terrain = {
+0: [6],
+8: [6],
+12: [5],
+"type": 6
+}
+5:1/63 = 63
+5:1/63/physics_layer_0/linear_velocity = Vector2(0, 0)
+5:1/63/physics_layer_0/angular_velocity = 0.0
+5:1/63/metadata/_better_terrain = {
+0: [6],
+4: [5],
+8: [6],
+"type": 6
+}
+5:1/64 = 64
+5:1/64/physics_layer_0/linear_velocity = Vector2(0, 0)
+5:1/64/physics_layer_0/angular_velocity = 0.0
+5:1/64/metadata/_better_terrain = {
+0: [6],
+4: [5],
+8: [6],
+12: [5],
+"type": 6
+}
+4:1/0 = 0
+4:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+4:1/0/physics_layer_0/angular_velocity = 0.0
+4:1/0/metadata/_better_terrain = {
+0: [6],
+4: [6],
+12: [6],
+"type": 6
+}
+7:1/0 = 0
+7:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+7:1/0/physics_layer_0/angular_velocity = 0.0
+7:1/0/metadata/_better_terrain = {
+4: [6],
+12: [6],
+"type": 6
+}
+7:0/0 = 0
+7:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+7:0/0/physics_layer_0/angular_velocity = 0.0
+7:0/0/metadata/_better_terrain = {
+4: [6],
+"type": 6
+}
+6:0/0 = 0
+6:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+6:0/0/physics_layer_0/angular_velocity = 0.0
+6:0/0/metadata/_better_terrain = {
+4: [6],
+8: [6],
+"type": 6
+}
+5:0/0 = 0
+5:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+5:0/0/physics_layer_0/angular_velocity = 0.0
+5:0/0/metadata/_better_terrain = {
+0: [6],
+4: [6],
+8: [6],
+"type": 6
+}
+4:0/0 = 0
+4:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+4:0/0/physics_layer_0/angular_velocity = 0.0
+4:0/0/metadata/_better_terrain = {
+0: [6],
+4: [6],
+"type": 6
+}
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_nqfyy"]
+texture = ExtResource("5_npl85")
+0:0/next_alternative_id = 2
+0:0/0 = 0
+0:0/0/texture_origin = Vector2i(0, -1)
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
+0:0/0/metadata/_better_terrain = {
+0: [8],
+"type": 7
+}
+1:0/next_alternative_id = 3
+1:0/0 = 0
+1:0/0/texture_origin = Vector2i(0, -1)
+1:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:0/0/physics_layer_0/angular_velocity = 0.0
+1:0/0/metadata/_better_terrain = {
+8: [7],
+"type": 8
+}
+1:0/2 = 2
+1:0/2/flip_h = true
+1:0/2/texture_origin = Vector2i(0, -1)
+1:0/2/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:0/2/physics_layer_0/angular_velocity = 0.0
+1:0/2/metadata/_better_terrain = {
+0: [7],
+"type": 8
+}
+2:0/next_alternative_id = 5
+2:0/0 = 0
+2:0/0/texture_origin = Vector2i(0, -1)
+2:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+2:0/0/physics_layer_0/angular_velocity = 0.0
+2:0/0/metadata/_better_terrain = {
+4: [7],
+12: [8],
+"type": 8
+}
+2:0/1 = 1
+2:0/1/texture_origin = Vector2i(0, -1)
+2:0/1/physics_layer_0/linear_velocity = Vector2(0, 0)
+2:0/1/physics_layer_0/angular_velocity = 0.0
+2:0/1/metadata/_better_terrain = {
+0: [9],
+4: [8],
+8: [9],
+12: [8],
+"type": 8
+}
+2:0/2 = 2
+2:0/2/texture_origin = Vector2i(0, -1)
+2:0/2/physics_layer_0/linear_velocity = Vector2(0, 0)
+2:0/2/physics_layer_0/angular_velocity = 0.0
+2:0/2/metadata/_better_terrain = {
+4: [8],
+8: [9],
+12: [8],
+"type": 8
+}
+2:0/3 = 3
+2:0/3/texture_origin = Vector2i(0, -1)
+2:0/3/physics_layer_0/linear_velocity = Vector2(0, 0)
+2:0/3/physics_layer_0/angular_velocity = 0.0
+2:0/3/metadata/_better_terrain = {
+0: [9],
+4: [8],
+12: [8],
+"type": 8
+}
+2:0/4 = 4
+2:0/4/texture_origin = Vector2i(0, -1)
+2:0/4/physics_layer_0/linear_velocity = Vector2(0, 0)
+2:0/4/physics_layer_0/angular_velocity = 0.0
+3:0/0 = 0
+3:0/0/texture_origin = Vector2i(0, -1)
+3:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+3:0/0/physics_layer_0/angular_velocity = 0.0
+3:0/0/metadata/_better_terrain = {
+0: [8],
+8: [8],
+"type": 7
+}
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vga4h"]
+texture = ExtResource("6_a8w1m")
+texture_region_size = Vector2i(34, 22)
+0:0/next_alternative_id = 3
+0:0/0 = 0
+0:0/0/texture_origin = Vector2i(9, 0)
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
+0:0/0/metadata/_better_terrain = {
+0: [8],
+"type": 9
+}
+0:0/2 = 2
+0:0/2/flip_h = true
+0:0/2/texture_origin = Vector2i(-9, 0)
+0:0/2/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/2/physics_layer_0/angular_velocity = 0.0
+0:0/2/metadata/_better_terrain = {
+8: [8],
+"type": 9
+}
+
 [sub_resource type="TileSet" id="TileSet_2bi68"]
 physics_layer_0/collision_layer = 1
 terrain_set_0/mode = 0
@@ -2739,6 +4263,9 @@ terrain_set_0/terrain_0/name = "Terrain 0"
 terrain_set_0/terrain_0/color = Color(0.709804, 0.101961, 0, 1)
 sources/0 = SubResource("TileSetAtlasSource_oeg55")
 sources/1 = SubResource("TileSetAtlasSource_towqy")
+sources/2 = SubResource("TileSetAtlasSource_md742")
+sources/5 = SubResource("TileSetAtlasSource_nqfyy")
+sources/6 = SubResource("TileSetAtlasSource_vga4h")
 metadata/_better_terrain = {
 "decoration": ["Decoration", Color(0.411765, 0.411765, 0.411765, 1), 3, [], {
 "path": "res://addons/better-terrain/icons/Decoration.svg"
@@ -2752,6 +4279,16 @@ metadata/_better_terrain = {
 }], ["fleur", Color(0.69018, 0.392456, 0.147811, 1), 0, [], {
 "path": ""
 }], ["bedrock", Color(0.460169, 0.723356, 0.770149, 1), 0, [], {
+"path": ""
+}], ["background_terre", Color(0.349088, 0.766724, 0.264725, 1), 0, [], {
+"path": ""
+}], ["background_stone", Color(0.756863, 0.603922, 0.913725, 1), 0, [], {
+"path": ""
+}], ["base_arbres", Color(0.398176, 0.224531, 0.806001, 1), 0, [], {
+"path": ""
+}], ["arbres", Color(0.94892, 0.031432, 0.640415, 1), 0, [], {
+"path": ""
+}], ["stick", Color(0.762219, 0.296435, 0.560433, 1), 0, [], {
 "path": ""
 }]],
 "version": "0.2"
@@ -2788,6 +4325,11 @@ bedrock = 500
 tile_set = SubResource("TileSet_2bi68")
 rendering_quadrant_size = 6
 format = 2
+layer_0/name = "foreground"
+layer_0/tile_data = PackedInt32Array(-655202, 65538, 262145, -589666, 458754, 3, -655201, 458754, 3, -655199, 458754, 3, -655197, 458754, 3, -655195, 458754, 3, -589658, 458754, 3, -655198, 65538, 458753, -655194, 65538, 327681, -655206, 196610, 3, -655210, 196610, 3, -655214, 196610, 3, -655218, 65538, 589825, -720754, 458754, 3, -655213, 458754, 3, -589674, 458754, 3, -655207, 458754, 3, -393074, 65538, 65537, -393070, 65538, 131073, -393066, 65538, 196609, -393062, 65538, 65537, -393058, 65538, 65537, -393054, 65538, 327681, -393050, 65538, 393217, -393038, 2, 3, -393034, 65538, 327681, -393026, 2, 3, -655190, 65538, 1114113, -655186, 65538, 1638401, -655182, 65538, 1638401, -655178, 65538, 458753, -655174, 65538, 458753, -655170, 65538, 262145, -655166, 65538, 327681, -720726, 458754, 3, -655189, 458754, 3, -720722, 458754, 3, -589650, 458754, 3, -720718, 458754, 3, -655183, 458754, 3, -720714, 458754, 3, -655179, 458754, 3, -655177, 458754, 3, -720710, 458754, 3, -655175, 458754, 3, -655173, 458754, 3, -720706, 458754, 3, -655169, 458754, 3, -589634, 458754, 3, -720702, 458754, 3, -655167, 458754, 3, -589630, 458754, 3, -393046, 2, 3, -393042, 2, 3, -393022, 65538, 327681, -458610, 196610, 0, -393073, 458754, 3, -327534, 458754, 3, -393067, 458754, 3, -458602, 196610, 0, -458606, 196610, 0, -458598, 196610, 0, -458594, 196610, 0, -458590, 196610, 0, -458586, 196610, 0, -393061, 458754, 3, -327526, 458754, 3, -393059, 458754, 3, -393057, 458754, 3, -393055, 458754, 3, -327518, 458754, 3, -393049, 458754, 3, -327514, 458754, 3, -393051, 458754, 3, -393045, 131074, 3, -327510, 458754, 3, -393043, 458754, 3, -458574, 458754, 3, -393041, 131074, 3, -393037, 131074, 3, -393033, 131074, 3, -393029, 131074, 3, -393025, 131074, 3, -393021, 131074, 3, -327498, 458754, 3, -393035, 458754, 3, -327494, 458754, 3, -458566, 458754, 3, -393030, 2, 3, -458562, 458754, 3, -393027, 458754, 3, -458558, 458754, 3, -393023, 458754, 3, -327486, 458754, 3, -130930, 196610, 0, -130926, 196610, 0, -130922, 196610, 0, -130918, 196610, 0, -130914, 65538, 458753, -130910, 196610, 0, -130906, 65538, 458753, -130902, 131074, 3, -130898, 131074, 3, -130894, 131074, 3, -130890, 131074, 3, -130886, 131074, 3, -130882, 65538, 262145, -130878, 65538, 262145, -65394, 196610, 2, -65390, 196610, 2, -65386, 196610, 2, -65382, 196610, 2, -65378, 196610, 2, -65374, 196610, 2, -65370, 196610, 2, -130903, 2, 3, -130899, 2, 3, -130895, 2, 3, -130891, 2, 3, -130887, 2, 3, -130883, 2, 3, -130879, 2, 3, -130931, 458754, 3, -196462, 458754, 3, -130921, 458754, 3, -130919, 458754, 3, -196454, 458754, 3, -130915, 458754, 3, -130913, 458754, 3, -196446, 458754, 3, -130909, 458754, 3, -130907, 458754, 3, -196442, 458754, 3, -130905, 458754, 3, -196438, 458754, 3, -130897, 458754, 3, -65358, 458754, 3, -196426, 458754, 3, -130889, 458754, 3, -196422, 458754, 3, -65350, 458754, 3, -65346, 458754, 3, -130881, 458754, 3, -196414, 458754, 3, -130877, 458754, 3, -65342, 458754, 3, 131214, 65538, 2, 131218, 2, 1, 131222, 65538, 0, 131226, 131074, 1, 131213, 2, 3, 65678, 196610, 0, 131215, 131074, 3, 196750, 458754, 3, 65682, 196610, 0, 131219, 131074, 3, 196754, 196610, 2, 131223, 131074, 3, 196758, 196610, 2, 131221, 2, 3, 65690, 196610, 0, 131225, 2, 3, 196762, 196610, 2, 131217, 458754, 3, 65686, 458754, 3, 131227, 458754, 3, 458894, 393216, 9, 458902, 65538, 1310721, 458906, 65538, 983041, 458910, 131074, 2, 458914, 65538, 1179649, 393358, 196610, 3, 458895, 196610, 3, 458898, 65538, 1507329, 393362, 196610, 0, 458899, 131074, 3, 393366, 196610, 0, 458903, 131074, 3, 393370, 196610, 0, 458905, 2, 3, 393374, 196610, 0, 458909, 2, 3, 393378, 196610, 0, 458913, 2, 3, 524430, 327682, 589825, 458897, 327682, 3670017, 524438, 327682, 3407873, 458901, 327682, 131073, 458907, 327682, 65537, 524446, 327682, 65537, 458915, 327682, 262145, 524450, 327682, 458753, 458919, 2, 0, 458923, 2, 0, 458927, 65538, 2097153, 458931, 131074, 0, 458935, 65538, 2031617, 458939, 65538, 2555905, 458920, 131074, 3, 524455, 196610, 2, 458924, 131074, 3, 524459, 196610, 2, 458928, 131074, 3, 524463, 196610, 2, 458930, 2, 3, 524467, 196610, 2, 458934, 2, 3, 524471, 196610, 2, 458938, 2, 3, 524475, 196610, 2, 393383, 327682, 65537, 458922, 327682, 3407873, 458926, 327682, 4259841, 393391, 327682, 524289, 393395, 327682, 3080193, 458936, 327682, 3342337, 393403, 327682, 589825, 458940, 327682, 4325377, 655502, 196610, 0, 721038, 65538, 2031617, 786574, 196610, 2, 655506, 196610, 0, 721042, 65538, 1900545, 786578, 196610, 2, 655510, 196610, 0, 721046, 65538, 2162689, 786582, 196610, 2, 721049, 2, 3, 721050, 65538, 2359297, 721051, 131074, 3, 721053, 2, 3, 721054, 65538, 1441793, 721055, 131074, 3, 721057, 2, 3, 721058, 65538, 2621441, 721059, 131074, 3, 721039, 327682, 4128769, 721041, 327682, 3997697, 721045, 327682, 3801089, 721047, 327682, 720897, 655514, 327682, 655361, 786590, 327682, 3604481, 655522, 327682, 65537, 786594, 327682, 3997697)
+layer_1/name = "background"
+layer_1/modulate = Color(0.670588, 0.670588, 0.670588, 1)
+layer_1/z_index = -1
 layer_1/tile_data = PackedInt32Array()
 
 [node name="tilemap_cam" type="Camera2D" parent="TileMap"]
@@ -2852,7 +4394,7 @@ motion_scale = Vector2(0, 1)
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2"]
 modulate = Color(1, 1, 1, 0.882353)
 position = Vector2(961, -169)
-scale = Vector2(5.466, 2.88)
+scale = Vector2(9.08824, 32.8936)
 texture = ExtResource("5_sib0y")
 
 [node name="ParallaxLayer4" type="ParallaxLayer" parent="ParallaxBackground"]
